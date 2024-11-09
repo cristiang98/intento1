@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos por cada Encuentro</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+
+<h1>Detalles del Encuentro: <span th:text="${encuentro.nombre}"></span></h1>
+<h2> Descripción </h2>
+<p th:text="${encuentro.descripcion}"></p>
+<h2> Fecha: </h2>
+<p th:text="${encuentro.fecha}"></p>
+
+<ul>
+    <li th:each="equipo : ${equipos}">
+        <div class="equipo-info">
+            <span th:text="${equipo.nombre}">Nombre del Equipo</span>
+            <span th:text="${equipo.tipo}">Tipo de Equipo</span>
+            <span th:text="${equipo.estadoFuncional ? 'Activo' : 'Inactivo'}" th:class="${equipo.estadoFuncional ? 'estado' : 'estado inactivo'}">Estado</span>
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>

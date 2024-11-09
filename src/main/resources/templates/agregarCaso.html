@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Caso</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Agregar un Nuevo Caso para el Miembro: <span th:text="${miembro.nombre}"></span> Con ID: <span th:text="${miembro.id}"></span> </h1>
+
+<!-- Formulario para ingresar un caso -->
+<form th:action="@{/miembros/crear-caso/{id}(id=${miembro.id})}" th:object="${caso}" method="post">
+
+    <!-- Campo para el nombre del caso -->
+<!--    <div>-->
+<!--        <label for="id">id</label>-->
+<!--        <input type="number" id="id" th:field="*{id}" required />-->
+<!--    </div>-->
+
+    <div>
+        <label for="nombre">Nombre del Caso:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required />
+    </div>
+
+    <!-- Campo para la ubicación -->
+    <div>
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" th:field="*{ubicacion}" required />
+    </div>
+
+    <!-- Campo para el nivel de actividad -->
+    <div>
+        <label for="nivelActividad">Nivel de Actividad:</label>
+        <select id="nivelActividad" th:field="*{nivelActividad}" required style="width: 52%">
+            <option value="BAJO">Bajo</option>
+            <option value="MEDIO">Medio</option>
+            <option value="ALTO">Alto</option>
+        </select>
+    </div>
+
+    <!-- Campo para la fecha de apertura -->
+    <div>
+        <label for="fechaApertura">Fecha de Apertura:</label>
+        <input type="date" id="fechaApertura" th:field="*{fechaApertura}" required />
+    </div>
+
+
+    <div>
+        <button type="submit">Guardar Caso</button>
+    </div>
+</form>
+
+<a href="#" th:href="@{/miembros}">Volver a la lista de miembros</a>
+</body>
+</html>

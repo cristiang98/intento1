@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuentros Paranormales</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Lista de Encuentros Paranormales</h1>
+<a href="/" class="btn btn-primary" style=" display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">Inicio</a>
+<a href="#" th:href="@{/encuentro/crear}"
+   style="display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">
+    Agregar Nuevo Encuentro
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Tipo de Fenómeno</th>
+            <th>Asignar Equipos</th>
+            <th>Ver Equipos Asignados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="encuentro : ${encuentros}">
+            <td th:text="${encuentro.nombre}">Nombre del Encuentro</td>
+            <td th:text="${encuentro.descripcion}">Descripción del Encuentro</td>
+            <td th:text="${encuentro.fecha}">Fecha del Encuentro</td>
+            <td th:text="${encuentro.tipoFenomeno}">Tipo de Fenómeno</td>
+            <td>
+                <a th:href="@{/encuentro/asignar-equipos/{id}(id=${encuentro.id})}">Asignar Equipos</a>
+            </td>
+            <td>
+                <a th:href="@{/encuentro/equiposByEncuentros/{id}(id=${encuentro.id})}">Ver Equipos Asignados</a>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

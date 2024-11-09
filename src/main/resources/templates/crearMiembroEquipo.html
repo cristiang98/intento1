@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Miembro y Equipo</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Crear Nuevo Miembro y Equipo</h1>
+<form th:action="@{/miembros-equipos/crear}" th:object="${miembroYEquipo}" method="post">
+    <div class="form-container">
+        <!-- Miembro -->
+        <div class="form-section">
+            <h2>Miembro</h2>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" th:field="*{miembro.nombre}" required />
+            </div>
+            <div>
+                <label for="rol">Rol:</label>
+                <select id="rol" th:field="*{miembro.rol}" required>
+                    <option value="Investigador">Investigador</option>
+                    <option value="Medium">Médium</option>
+                    <option value="Tecnico">Técnico</option>
+                    <option value="Historiador">Historiador</option>
+                </select>
+            </div>
+            <div>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" th:field="*{miembro.edad}" required />
+            </div>
+            <div>
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad" th:field="*{miembro.especialidad}" required />
+            </div>
+        </div>
+
+        <!-- Equipo -->
+        <div class="form-section">
+            <h2>Equipo</h2>
+            <div>
+                <label for="nombreEquipo">Nombre del Equipo:</label>
+                <input type="text" id="nombreEquipo" th:field="*{equipo.nombre}" required />
+            </div>
+            <div>
+                <label for="tipo">Tipo de Equipo:</label>
+                <select id="tipo" th:field="*{equipo.tipo}" required>
+                    <option value="ELECTROMAGNETICO">Electromagnético</option>
+                    <option value="TERMICO">Térmico</option>
+                    <option value="FOTOGRAFICO">Fotográfico</option>
+                    <option value="SONORO">Sonoro</option>
+                </select>
+            </div>
+            <div>
+                <label for="estadoFuncional">Estado Funcional:</label>
+                <input type="checkbox" id="estadoFuncional" th:field="*{equipo.estadoFuncional}" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit">Guardar Miembro y Equipo</button>
+    </div>
+</form>

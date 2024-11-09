@@ -1,0 +1,35 @@
+<!-- casosById.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Casos de Miembro</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Casos de Miembro: <span th:text="${miembro.nombre}"></span></h1>
+<a href="/" class="btn btn-primary" style=" display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">Inicio</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Fecha de Apertura</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="caso : ${casos}">
+        <td th:text="${caso.id}"></td>
+        <td th:text="${caso.nombre}"></td>
+        <td th:text="${caso.ubicacion}"></td>
+        <td th:text="${caso.fechaApertura}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/casos/miembros">Volver a la lista de miembros</a>
+</body>
+</html>

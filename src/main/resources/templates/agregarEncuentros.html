@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Encuentro</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a href="/" class="btn btn-primary" style=" display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">Inicio</a>
+<h1>Agregar un Nuevo Encuentro</h1>
+
+<!-- Formulario para ingresar un encuentro -->
+<form th:action="@{/encuentro/crear}" th:object="${encuentroParanormal}" method="post">
+
+    <!-- Campo para el nombre del encuentro -->
+    <div>
+        <label for="nombre">Nombre del Encuentro:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required />
+    </div>
+
+    <!-- Campo para la descripción -->
+    <div>
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" th:field="*{descripcion}" required></textarea>
+    </div>
+
+    <!-- Campo para la fecha -->
+    <div>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" th:field="*{fecha}" required />
+    </div>
+
+    <!-- Campo para el tipo de fenómeno -->
+    <div>
+        <label for="tipoFenomeno">Tipo de Fenómeno:</label>
+        <select id="tipoFenomeno" th:field="*{tipoFenomeno}" required style="width: 52%">
+            <option value="APARICION">Aparición</option>
+            <option value="POLTERGEIST">Poltergeist</option>
+            <option value="EVP">EVP</option>
+            <option value="DEMONIO">Demonio</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Guardar Encuentro</button>
+    </div>
+</form>
+
+<a href="#" th:href="@{/encuentro}" style="
+display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+">
+    Volver a la lista de encuentros</a>
+</body>
+</html>

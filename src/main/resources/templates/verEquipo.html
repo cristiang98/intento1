@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ver Miembro y Equipo</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Detalles del Miembro</h1>
+
+<h2>Miembro</h2>
+<div>
+    <p><strong>Nombre:</strong> <span th:text="${miembro.nombre}"></span></p>
+    <p><strong>Rol:</strong> <span th:text="${miembro.rol}"></span></p>
+    <p><strong>Edad:</strong> <span th:text="${miembro.edad}"></span></p>
+    <p><strong>Especialidad:</strong> <span th:text="${miembro.especialidad}"></span></p>
+</div>
+
+<h2>Equipo</h2>
+<div>
+    <p><strong>Nombre del Equipo:</strong> <span th:text="${equipo.nombre}"></span></p>
+    <p><strong>Tipo:</strong> <span th:text="${equipo.tipo}"></span></p>
+    <p><strong>Estado Funcional:</strong> <span th:text="${equipo.estadoFuncional ? 'Sí' : 'No'}"></span></p>
+</div>
+
+<a href="/miembros" class="btn btn-secondary">Volver a la lista de Miembros</a>
+</body>
+</html>

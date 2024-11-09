@@ -1,0 +1,133 @@
+/* Estilo general */
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5%;
+    background-color: #dce0e6;
+}
+
+/* Estilo del formulario */
+
+h1{
+    color: #2b4c7e;
+    margin-bottom:  30px;
+}
+
+h2{
+    color: #2b4c7e;
+}
+
+h3{
+    color: #2b4c7e;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+nav ul li {
+    margin-right: 10px;
+    margin-top: 20px;
+
+}
+
+nav ul li a {
+    color: #2b4c7e;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: #567ebb;
+}
+
+/* Estilo de los labels , inputs  y select */
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-section {
+    width: 45%;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    color: #2b4c7e;
+}
+
+input {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2b4c7e;
+}
+
+select {
+    width: 55%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2b4c7e;
+}
+
+select option {
+    padding: 10px;
+    text-align: center;
+}
+button {
+    background-color: #2b4c7e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #567ebb;
+}
+
+/* Estilo de la tabla */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid black; /* Add this line */
+}
+
+th {
+    background-color: #2b4c7e;
+    color: white;
+    padding: 10px;
+    border: 1px solid black; /* Add this line */
+}
+
+td {
+    border: 1px solid black; /* Change this line */
+    padding: 10px;
+}
+
+a{
+    color: #2b4c7e;
+}
+
+a:hover{
+    color: #567ebb;
+}
+
+textarea {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2b4c7e;
+}
+

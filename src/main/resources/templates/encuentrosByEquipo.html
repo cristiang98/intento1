@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos por cada Encuentro</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a href="/equipos" class="btn btn-primary" style=" display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">Volver</a>
+<h1>Detalles del Equipo: <span th:text="${equipo.nombre}"></span></h1>
+<h2>Tipo del Equipo</h2>
+<p th:text="${equipo.tipo}" style="font-size: 20px"></p>
+
+<h2>¿Se encuentra funcional?</h2>
+<p th:text="${equipo.estadoFuncional ? 'Activo' : 'Inactivo'}" style="font-size: 20px" ></p>
+
+<h3>Encuentros Asociados:</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Tipo del Fenómeno</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="encuentro : ${encuentros}">
+            <td th:text="${encuentro.nombre}">Nombre del Encuentro</td>
+            <td th:text="${encuentro.descripcion}">Descripción del Encuentro</td>
+            <td th:text="${encuentro.fecha}">Fecha</td>
+            <td th:text="${encuentro.tipoFenomeno}">Tipo del Fenómeno</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

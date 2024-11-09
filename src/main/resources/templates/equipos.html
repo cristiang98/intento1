@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Equipos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Lista de Equipos</h1>
+    <a href="/" class="btn btn-primary" style=" display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">Inicio</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Estado Funcional</th>
+                <th>ID Miembro</th>
+                <th>Ver Encuentros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="equipo : ${equipos}">
+                <td th:text="${equipo.id}"></td>
+                <td th:text="${equipo.nombre}"></td>
+                <td th:text="${equipo.tipo}"></td>
+                <td th:text="${equipo.estadoFuncional} ? 'Sí' : 'No'"></td>
+                <td th:text="${equipo.idMiembro.getId()}"></td>
+                <td>
+                    <!-- Botón para redirigir a la vista de Encuentros asignados a este equipo -->
+                    <a th:href="@{/equipos/encuentroByEquipo/{id}(id=${equipo.id})}" class="btn">Ver Encuentros</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

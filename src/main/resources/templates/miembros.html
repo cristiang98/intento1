@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Miembros</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Lista de Miembros</h1>
+    <a href="/" class="btn btn-primary" style=" display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;">Inicio</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Edad</th>
+                <th>Especialidad</th>
+                <th>Ver Equipo</th>
+                <th>Agregar Caso</th>
+                <th>Ver Casos</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="miembro : ${miembros}">
+                <td th:text="${miembro.id}"></td>
+                <td th:text="${miembro.nombre}"></td>
+                <td th:text="${miembro.rol}"></td>
+                <td th:text="${miembro.edad}"></td>
+                <td th:text="${miembro.especialidad}"></td>
+                <!-- Aquí agregamos el botón para ver el equipo -->
+                <td>
+                    <a th:href="@{/miembros/ver-equipo/{id}(id=${miembro.id})}" class="btn btn-primary">Ver Equipo</a>
+
+                </td>
+                <td>
+                    <!-- Botón para agregar un nuevo caso -->
+                    <a th:href="@{/miembros/crear-caso/{id}(id=${miembro.id})}" class="btn btn-primary">Agregar Caso</a>
+                </td>
+                <td>
+                    <!-- Botón para ver los casos de un miembro -->
+                <a th:href="@{/casos/byId/{id}(id=${miembro.id})}" class="btn btn-primary">Ver Casos</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

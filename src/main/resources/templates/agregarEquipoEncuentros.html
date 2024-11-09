@@ -1,0 +1,25 @@
+<!-- src/main/resources/templates/asignarEquipos.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Asignar Equipos a Encuentro</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Asignar Equipos a Encuentro</h1>
+
+<form th:action="@{/encuentro/asignar-equipos/{id}(id=${encuentro.id})}" method="post">
+    <div>
+        <label for="equipos">Selecciona Equipos:</label>
+        <select id="equipos" name="equipoIds" multiple>
+            <option th:each="equipo : ${equipos}" th:value="${equipo.id}" th:text="${equipo.nombre}"></option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Asignar Equipos</button>
+    </div>
+</form>
+
+<a href="#" th:href="@{/encuentro}">Volver a la lista de encuentros</a>
+</body>
+</html>

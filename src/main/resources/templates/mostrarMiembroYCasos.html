@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Miembros</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Lista de Miembros</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Ver Casos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="miembro : ${miembros}">
+                <td th:text="${miembro.id}"></td>
+                <td th:text="${miembro.nombre}"></td>
+                <td>
+                    <a th:href="@{/casos/byId/{id}(id=${miembro.id})}" class="btn btn-primary">Ver Casos</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
